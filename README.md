@@ -1,4 +1,3 @@
-# Frontend Mentor - Todo app
 
 ![Design preview for the Todo app coding challenge](./design/desktop-preview.jpg)
 
@@ -97,3 +96,7 @@ We love receiving feedback! We're always looking to improve our challenges and o
 This challenge is completely free. Please share it with anyone who will find it useful for practice.
 
 **Have fun building!** 🚀
+=======
+# Todo-app
+ to-do app using html , css , javascript from frontend mentor 
+>>>>>>> 25ec9a946874b5f0ad9d32ef26062e6fa5c6a3c4
