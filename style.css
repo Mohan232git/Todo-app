@@ -7,7 +7,8 @@
 
 body {
     font-size: 18px;
-    font-family: 'Hanken Grotesk', sans-serif;   
+    font-family: 'Hanken Grotesk', sans-serif; 
+    background-color: hsl(0, 0%, 98%);  
 }
 
 .image {
@@ -18,9 +19,10 @@ body {
 }
 
 .container {
-    max-width:400px ;
+    max-width:500px ;
     margin: 0 auto;
     margin-top: -300px;   
+    
 }
 
 .container-img {
@@ -62,7 +64,7 @@ body {
 
 .input-box>p {
     border: 2px solid lightgray;
-    width: 25px;
+    width: 23px;
     border-radius: 50%;
     margin: 0 5px;
 }
@@ -84,33 +86,44 @@ body {
 
 .tasks {
     width: 100%;
-    
     background-color: white;
-    border: 2px solid red;
+    box-shadow: -1px 1px 5px #8888;
+    
 }
 .tasks ul li {
     list-style: none;
-    border-bottom: 2px solid lightgray;
-    min-height: 50px;
+    border-bottom: 1px solid lightgray;
+    min-height: 60px;
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     
 }
-.tasks ul li input {
-    margin: 0 10px;
-    width: 50px;
-    border: 2px solid lightgray;
-    border-radius: 50%;
-    background-image: url(images/icon-check.svg);
+.tasks ul li:hover {
+    background-color: lightblue;
+    
 }
 
+.tasks ul li
 
+#checkbox{
+    width: 20px;
+    height: 20px;
+    border: 1px solid lightgray;
+    border-radius: 50%;
+    margin-left: 5px;
+    margin-right: 20px;
+    
 
-.tasks ul {
- border: 1px solid;
- 
+}
+.check-svg {
+    margin: 5px;
+    font-size: 11px;
+}
+#checkbox:hover {
+    background:linear-gradient(hsl(192, 100%, 67%) ,hsl(280, 87%, 65%));
 }
 .tasks ul li span {
     color:hsl(235, 19%, 35%) ;
@@ -137,12 +150,30 @@ body {
     justify-content: space-between;
 }
 .footer {
-    margin: 20px 0;
-    background-color: lightgray;
+    background-color: white;
+   
+    font-weight: 500;
     min-height: 60px;
     align-items: center;
     padding: 10px;
+    color: lightgray;
 }
+.center-footer {
+    text-transform: capitalize;
+    gap: 15px;
+}
+.footer p a {
+    text-decoration: none;
+    color: gray;
+}
+
+.footer p a:hover {
+    color:hsl(235, 19%, 35%) ;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+
 
 
 
