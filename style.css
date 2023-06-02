@@ -12,14 +12,23 @@ body {
 }
 
 .image {
-    width: 1440px;
+    max-width: 1440px;
     height: 35vh;
     background-image: url(images/bg-desktop-light.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 0 auto;
 }
 
+@media(max-width:400px){
+    .image {
+        background-position: center;
+    }
+}
+
 .container {
-    max-width:500px ;
+    min-width:400px ;
+    max-width: 500px;
     margin: 0 auto;
     margin-top: -300px;   
     
@@ -94,49 +103,53 @@ body {
     list-style: none;
     border-bottom: 1px solid lightgray;
     min-height: 60px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    
-}
-.tasks ul li:hover {
-    background-color: lightblue;
-    
+    padding: 10px;  
 }
 
-.tasks ul li
-
-#checkbox{
-    width: 20px;
-    height: 20px;
-    border: 1px solid lightgray;
-    border-radius: 50%;
-    margin-left: 5px;
-    margin-right: 20px;
-    
-
-}
-.check-svg {
-    margin: 5px;
-    font-size: 11px;
-}
-#checkbox:hover {
-    background:linear-gradient(hsl(192, 100%, 67%) ,hsl(280, 87%, 65%));
-}
-.tasks ul li span {
+.tasks ul li {
+    padding: 10px 60px;
     color:hsl(235, 19%, 35%) ;
-}
-
-
-.items {
-    color:  hsl(235, 19%, 35%);
-}
-
-.flex {
     display: flex;
+    justify-content: left;
     align-items: center;
+    padding-right: 10px;
+    position: relative;
+   
+     
+
+}
+.tasks ul li::before {
+    content: '';
+    display:inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid lightgray;
+    border-radius:50% ;
+    position: absolute;
+    left: 20px;
+}
+.tasks ul li:hover:before  {
+    background-image: url(images/icon-check.svg),
+    linear-gradient(hsl(192, 100%, 67%) ,hsl(280, 87%, 65%) );
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+}
+.tasks ul li:hover:after {
+    content: '';
+    width: 26px;
+    height: 26px;
+    background-image: url(images/icon-cross.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    border-radius: 50%;
+    margin-left: auto;
+    justify-self: end;
+
+
+    
+
 }
 
 
