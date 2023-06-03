@@ -107,49 +107,42 @@ body {
 }
 
 .tasks ul li {
-    padding: 10px 60px;
     color:hsl(235, 19%, 35%) ;
     display: flex;
-    justify-content: left;
     align-items: center;
     padding-right: 10px;
-    position: relative;
-   
-     
 
 }
-.tasks ul li::before {
-    content: '';
-    display:inline-block;
-    width: 18px;
-    height: 18px;
-    border: 2px solid lightgray;
-    border-radius:50% ;
-    position: absolute;
-    left: 20px;
+
+#ul-container .task {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
-.tasks ul li:hover:before  {
-    background-image: url(images/icon-check.svg),
-    linear-gradient(hsl(192, 100%, 67%) ,hsl(280, 87%, 65%) );
+#ul-container .task .check {
+    margin-left: 10px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid lightgray;
+    border-radius: 50%;
+}
+#ul-container li:hover .task .check{
+    background-image: url(images/icon-check.svg), 
+    linear-gradient(hsl(192, 100%, 67%),hsl(280, 87%, 65%));
     background-position: center;
     background-repeat: no-repeat;
     border: none;
 }
-.tasks ul li:hover:after {
-    content: '';
-    width: 26px;
-    height: 26px;
+
+.tasks ul li:hover .cross {
+    width: 20px;
+    height: 20px;
     background-image: url(images/icon-cross.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 16px;
     border-radius: 50%;
     margin-left: auto;
-    justify-self: end;
-
-
+    margin-right: 10px;
     
-
 }
 
 
