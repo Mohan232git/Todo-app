@@ -93,6 +93,9 @@ body {
     font-size: 16px;
 }
 
+.invalid::placeholder{
+    color: red;
+}
 .tasks {
     width: 100%;
     background-color: white;
@@ -127,12 +130,12 @@ body {
     border: 2px solid lightgray;
     border-radius: 50%;
 }
-#ul-container li:hover .task .check{
+#ul-container li .task .checked{
     background-image: url(images/icon-check.svg), 
     linear-gradient(hsl(192, 100%, 67%),hsl(280, 87%, 65%));
     background-position: center;
     background-repeat: no-repeat;
-    border: none;
+    border: none; 
 }
 
 .tasks ul li:hover .cross {
