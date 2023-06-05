@@ -14,7 +14,10 @@ function appendli() {
     let span2 = document.createElement("span") ;
 
     if(input.value==""){
-        input.classList.add("invalid")
+
+        document.getElementById('input-box').placeholder = "Enter the task!"
+        input.classList.add("invalid");
+        
     }
     else{
     
@@ -33,35 +36,29 @@ function appendli() {
     input.classList.remove("invalid");
     
     }
+
+    console.log(liList)
+
+    let items = document.getElementById("ul-container");
+    items.addEventListener("click",function(e){
+    if(e.target.tagName=="LABEL"){
+        e.target.classList.toggle("checked-items");
+    }
+    else if(e.target.tagName=="SPAN"){
+         console.log(e.target);
+    }
+})
     
 }
-function del() {
-
-}
 
 
 
-let labels = document.getElementById("list-items")
-console.log(labels)
-labels.addEventListener(onclick , function(event){
-        let span = document.getElementsByClassName("check");
-        console.log(span)
-})
-
-let spanCross = document.getElementsByClassName("cross");
-let liList =document.getElementById("ul-container");
-let listItem = document.getElementsByClassName("listItems")
-console.log(listItem);
-liList.addEventListener(onclick,function(event){
-     if(event.target.tagName==" ") {
-        console.log(event.target);
-
-     }
-})
 
 
-   /* document.getElementsByClassName("task").addEventListener(onclick,
-    function(e){
-        console.log('cliked')
-    })*/
+
+
+
+
+
+
 

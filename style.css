@@ -122,6 +122,12 @@ body {
     align-items: center;
     gap: 20px;
 }
+
+
+.checked-items {
+    text-decoration: line-through;
+}
+
 #ul-container .task .check {
     margin-left: 10px;
     display: inline-block;
