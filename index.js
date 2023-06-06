@@ -1,6 +1,8 @@
-document.getElementById("input-box").addEventListener("keydown" , function(event){
+document.getElementById("input-box").addEventListener("keydown" , 
+function(event){
     if(event.keyCode==13) {
         appendli();
+     
     }
 })
 
@@ -23,33 +25,46 @@ function appendli() {
     
     span.classList.add("check");
     div.append(span);
-    label.innerHTML = input.value ;
+    label.innerText = input.value ;
     label.id = "list-items" ;
     div.appendChild(label);
     div.classList.add("task");
     li.appendChild(div);
-    span2.classList.add("cross");
+    span2.setAttribute("id","cross");
     li.appendChild(span2);
     li.classList.add("listItems");
     liList.appendChild(li);
     input.value="" ;
-    input.classList.remove("invalid");
+    document.getElementById('input-box').classList.remove("invalid");
+    document.getElementById('input-box').placeholder = "Create Todo-task....."
     
     }
-
-    console.log(liList)
-
-    let items = document.getElementById("ul-container");
-    items.addEventListener("click",function(e){
-    if(e.target.tagName=="LABEL"){
-        e.target.classList.toggle("checked-items");
-    }
-    else if(e.target.tagName=="SPAN"){
-         console.log(e.target);
-    }
-})
-    
 }
+document.getElementById("ul-container").addEventListener("click",function(e){
+
+    let cross = document.getElementById("cross");
+    let div  = document.getElementsByClassName("task");
+     if(e.target.tagName==="LABEL") {
+        
+        let lbl =  e.target ;
+        let span = e.target.previousSibling;
+        lbl.classList.toggle("checked-items");
+         if(lbl.classList.contains("checked-items")){
+                span.classList.toggle("checked");
+         }
+         else{
+           span.classList.remove("checked");
+         }
+        }
+    else if(e.target==cross){
+
+        e.target.parentNode.remove()
+
+     }
+        
+     
+})
+
 
 
 
