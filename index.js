@@ -39,31 +39,39 @@ function appendli() {
     document.getElementById('input-box').placeholder = "Create Todo-task....."
     
     }
+
+    document.getElementById("ul-container").addEventListener("click",function(e){
+
+    
+        let div  = document.getElementsByClassName("task");
+        let list = document.getElementsByClassName("listItems");
+        console.log(list);
+         if(e.target.tagName==='LABEL') {
+            
+            let lbl =  e.target ;
+            let span = e.target.previousSibling;
+            lbl.classList.toggle("checked-items");
+             if(lbl.classList.contains("checked-items")){
+                    span.classList.toggle("checked");
+             }
+             else{
+               span.classList.remove("checked");
+             }
+            }   
+    })
+
+    let cross = document.querySelectorAll("#cross");
+    cross.forEach(item => {
+            
+    item.addEventListener('click',function(e){
+           e.target.parentNode.remove(); 
+       })
+   })
+ 
 }
-document.getElementById("ul-container").addEventListener("click",function(e){
 
-    let cross = document.getElementById("cross");
-    let div  = document.getElementsByClassName("task");
-     if(e.target.tagName==="LABEL") {
-        
-        let lbl =  e.target ;
-        let span = e.target.previousSibling;
-        lbl.classList.toggle("checked-items");
-         if(lbl.classList.contains("checked-items")){
-                span.classList.toggle("checked");
-         }
-         else{
-           span.classList.remove("checked");
-         }
-        }
-    else if(e.target==cross){
 
-        e.target.parentNode.remove()
 
-     }
-        
-     
-})
 
 
 
