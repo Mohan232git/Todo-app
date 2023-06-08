@@ -12,20 +12,21 @@
     
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 </head>
-<body>
+<body id="body" >
     <div class="image"></div>
     <div class="container">
         
         <div class="content">
             <div class="header"> 
                 <h1>Todo</h1>
-                <img src="images/icon-sun.svg" id="sun-img" alt="">
+                <!-- <img src="images/icon-sun.svg" id="sun-img" class="sun" alt=""> -->
+                <span id="switch" class="sun"></span>
                 </div>
-            <div class="input-box">
+            <div class="input-box" id="input-box-div">
                 <p><span class="span"></span></p>
                 <input type="text" id="input-box" placeholder="Create Todo-task.....">
             </div>
-            <div class="tasks">
+            <div class="tasks" id="tasks">
                 <ul id="ul-container">
                    
                 <!--    <li class="listItems">
@@ -51,7 +52,7 @@
            </li>
                    -->      
                 </ul>
-                <div class="footer flex-foot">
+                <div class="footer flex-foot" id="footer">
                     <p><span></span><a href="">items left</a></p>
                     <div class="center-footer flex-foot">
                         <p><a href="#">all</a> </p>

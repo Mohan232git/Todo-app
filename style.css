@@ -11,6 +11,11 @@ body {
     background-color: hsl(0, 0%, 98%);  
 }
 
+.dm-body {
+    background-color: hsl(235, 24%, 19%);
+    
+}
+
 .image {
     max-width: 1440px;
     height: 35vh;
@@ -19,6 +24,7 @@ body {
     background-size: cover;
     margin: 0 auto;
 }
+
 
 @media(max-width:400px){
     .image {
@@ -54,6 +60,12 @@ body {
     height: 26px;
 }
 
+
+.moon {
+    width:26px;
+    height: 26px;
+}
+
 .header h1 {
     text-transform: uppercase;
     letter-spacing: 15px;
@@ -66,14 +78,19 @@ body {
     display: flex;
     background-color: white;
     padding: 15px;
-    border-radius: 5px;
+    border-radius:5px;
     
+   
+    
+}
+.input-box-dm {
+    background-color: hsl(235, 24%, 19%);
 }
 
 
 .input-box>p {
     border: 2px solid lightgray;
-    width: 23px;
+    width: 20px;
     border-radius: 50%;
     margin: 0 5px;
 }
@@ -82,25 +99,59 @@ body {
     width:100% ;
     font-size: 1em;
     font-weight: 400;
-    color: black;
     border: none;
     outline: none;
-    background-color: white;
     padding-left: 1em;
+   
+}
+#switch {
+    width:28px ;
+    height: 28px;
+    background-image: url(images/icon-sun.svg);
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+.input-dm {
+    
+    background-color: hsl(235, 24%, 19%);
+    color:  hsl(234, 39%, 85%);
 }
 
 #input-box::placeholder {
     font-size: 16px;
 }
 
+.invalid {
+    animation: shake 0.2s ease-in-out 0s 2;
+}
+@keyframes shake {
+    0% { margin-left: 0rem; }
+    25% { margin-left: 0.5rem; }
+    75% { margin-left: -0.5rem; }
+    100% { margin-left: 0rem; }
+  }
+
 .invalid::placeholder{
     color: red;
+    
 }
 .tasks {
     width: 100%;
     background-color: white;
     box-shadow: -1px 1px 5px #8888;
     
+}
+
+.dm-tasks  {
+    background-color: hsl(235, 24%, 19%);
+    color:  hsl(234, 39%, 85%);
+    
+    
+}
+.dm-tasks ul li {
+    border-bottom:hsl(234, 39%, 85%) ;
 }
 .tasks ul li {
     list-style: none;
@@ -110,7 +161,7 @@ body {
 }
 
 .tasks ul li {
-    color:hsl(235, 19%, 35%) ;
+    /* color:hsl(235, 19%, 35%) ; */
     display: flex;
     align-items: center;
     padding-right: 10px;
@@ -169,6 +220,15 @@ li:hover #cross {
     background-size: cover;
 }
 
+.cross-dm {
+    background-image: url(images/icon-cross.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+}
+
+
 
     /***********
     footer
@@ -180,13 +240,17 @@ li:hover #cross {
     justify-content: space-between;
 }
 .footer {
-    background-color: white;
-   
+  
+    color:  hsl(234, 39%, 85%);
     font-weight: 500;
     min-height: 60px;
     align-items: center;
     padding: 10px;
-    color: lightgray;
+    
+}
+
+.footer-dm {
+  
 }
 .center-footer {
     text-transform: capitalize;
@@ -195,6 +259,7 @@ li:hover #cross {
 .footer p a {
     text-decoration: none;
     color: gray;
+
 }
 
 .footer p a:hover {

@@ -6,6 +6,51 @@ function(event){
     }
 })
 
+
+/* dark-mode & light mode */
+
+let img = document.getElementById("switch");
+img.addEventListener("click",function(e){
+            let images = e.target ;
+            let imagesClass = images.classList ;
+        
+
+            if(imagesClass=="sun") {
+                img.classList.remove("sun")
+                img.classList.add("moon");
+                img.style.backgroundImage ="url('images/icon-moon.svg')" ;
+                let body = document.getElementById('body') ;
+                let inputBox =document.getElementById("input-box-div");
+                let inputField = document.getElementById("input-box");
+                let tasksdiv = document.getElementById('tasks');
+                body.classList.add("dm-body");
+                inputBox.classList.add("input-box-dm");
+                inputField.classList.add("input-dm");
+                tasksdiv.classList.add("dm-tasks");
+                
+                
+            }
+            else {
+                img.classList.remove("moon");
+                img.classList.add("sun") ;
+                img.style.backgroundImage = "url('images/icon-sun.svg')" ;
+                    
+                let body = document.getElementById('body') ;
+                let inputBox =document.getElementById("input-box-div");
+                let inputField = document.getElementById("input-box");
+                let tasksdiv = document.getElementById('tasks');
+                body.classList.remove("dm-body");
+                inputBox.classList.remove("input-box-dm");
+                inputField.classList.remove("input-dm");
+                tasksdiv.classList.remove("dm-tasks");
+            
+            }
+        
+})
+
+
+/* add list items in ul-container */
+
 function appendli() {
     let input = document.getElementById("input-box") ;
     let div =  document.createElement("div") ;
@@ -40,16 +85,21 @@ function appendli() {
     
     }
 
+
+    /* for addding checked items */
+
     document.getElementById("ul-container").addEventListener("click",function(e){
 
     
-        let div  = document.getElementsByClassName("task");
+        /* let div  = document.getElementsByClassName("task");
         let list = document.getElementsByClassName("listItems");
-        console.log(list);
+        console.log(list); */
          if(e.target.tagName==='LABEL') {
             
             let lbl =  e.target ;
-            let span = e.target.previousSibling;
+            console.log(lbl)
+            let span = lbl.previousSibling;
+            console.log(span)
             lbl.classList.toggle("checked-items");
              if(lbl.classList.contains("checked-items")){
                     span.classList.toggle("checked");
@@ -67,8 +117,13 @@ function appendli() {
            e.target.parentNode.remove(); 
        })
    })
+
+
+
  
 }
+
+
 
 
 
