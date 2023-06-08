@@ -78,6 +78,7 @@ function appendli() {
     span2.setAttribute("id","cross");
     li.appendChild(span2);
     li.classList.add("listItems");
+    li.setAttribute("draggable",true);
     liList.appendChild(li);
     input.value="" ;
     document.getElementById('input-box').classList.remove("invalid");
@@ -88,18 +89,19 @@ function appendli() {
 
     /* for addding checked items */
 
-    document.getElementById("ul-container").addEventListener("click",function(e){
+        document.getElementById("ul-container").addEventListener("click",function(e){
 
     
+        let div  = document.getElementsByClassName("task");
         /* let div  = document.getElementsByClassName("task");
         let list = document.getElementsByClassName("listItems");
+        console.log(list);
         console.log(list); */
          if(e.target.tagName==='LABEL') {
             
             let lbl =  e.target ;
-            console.log(lbl)
             let span = lbl.previousSibling;
-            console.log(span)
+            
             lbl.classList.toggle("checked-items");
              if(lbl.classList.contains("checked-items")){
                     span.classList.toggle("checked");
@@ -119,11 +121,7 @@ function appendli() {
    })
 
 
-
- 
 }
-
-
 
 
 
