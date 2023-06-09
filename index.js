@@ -86,43 +86,76 @@ function appendli() {
     
     }
 
+    /* remove item */
 
-    /* for addding checked items */
-
-        document.getElementById("ul-container").addEventListener("click",function(e){
-
-    
-        let div  = document.getElementsByClassName("task");
-        /* let div  = document.getElementsByClassName("task");
-        let list = document.getElementsByClassName("listItems");
-        console.log(list);
-        console.log(list); */
-         if(e.target.tagName==='LABEL') {
-            
-            let lbl =  e.target ;
-            let span = lbl.previousSibling;
-            
-            lbl.classList.toggle("checked-items");
-             if(lbl.classList.contains("checked-items")){
-                    span.classList.toggle("checked");
-             }
-             else{
-               span.classList.remove("checked");
-             }
-            }   
-    })
-
-    let cross = document.querySelectorAll("#cross");
+        let cross = document.querySelectorAll("#cross");
     cross.forEach(item => {
             
     item.addEventListener('click',function(e){
-           e.target.parentNode.remove(); 
-       })
-   })
+        e.target.parentNode.remove(); 
+    })
+    });
+    
 
 
+
+   /* drag and drop */
+
+   let list = document.querySelectorAll(".listItems") ;
+    let container = document.getElementById('ul-container') ;
+    list.forEach(item=> {
+        item.addEventListener("dragstart",()=>{
+            item.classList.add("dragging");
+        });
+        item.addEventListener("dragend",()=> {
+            item.classList.remove("dragging");
+        });
+    }) ;
+
+    const sortlist = (e)=>{
+        e.preventDefault() ;
+        let draggingItem = container.querySelector(".dragging");
+const siblings = [...container.querySelectorAll(".listItems:not(.dragging)")] ;
+
+        
+        
+        let nextsibling =siblings.find(siblings=>{
+            return e.clientY <=siblings.offsetTop + siblings.offsetHeight /2 ;
+        });
+
+
+        container.insertBefore(draggingItem ,nextsibling) ;
+    }
+
+    container.addEventListener("dragover",sortlist);
+    container.addEventListener("dragenter",(e)=>e.preventDefault());
+    
 }
 
+/* for addding checked items */
+
+document.getElementById("ul-container").addEventListener("click",function(e){
+
+    
+    let div  = document.getElementsByClassName("task");
+    /* let div  = document.getElementsByClassName("task");
+    let list = document.getElementsByClassName("listItems");
+    console.log(list);
+    console.log(list); */
+     if(e.target.tagName==='LABEL') {
+        
+        let lbl =  e.target ;
+        let span = lbl.previousSibling;
+        
+        lbl.classList.toggle("checked-items");
+         if(lbl.classList.contains("checked-items")){
+                span.classList.toggle("checked");
+         }
+         else{
+           span.classList.remove("checked");
+         }
+        }   
+})
 
 
 

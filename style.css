@@ -228,6 +228,9 @@ li:hover #cross {
     
 }
 
+.listItems.dragging :where(.task, #cross) {
+    opacity: 0;
+}
 
 
     /***********
