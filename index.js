@@ -1,3 +1,6 @@
+let container = document.getElementById("ul-container");
+
+
 document.getElementById("input-box").addEventListener("keydown" , 
 function(event){
     if(event.keyCode==13) {
@@ -53,12 +56,12 @@ img.addEventListener("click",function(e){
 
 function appendli() {
     let input = document.getElementById("input-box") ;
-    let div =  document.createElement("div") ;
+   /*  let div =  document.createElement("div") ; */
     let span =document.createElement("span") ;
-    let label = document.createElement("label");
+    /* let label = document.createElement("label"); */
     let li = document.createElement("li");
     let liList =document.getElementById("ul-container");
-    let span2 = document.createElement("span") ;
+   /*  let span2 = document.createElement("span") ; */
 
     if(input.value==""){
 
@@ -68,9 +71,9 @@ function appendli() {
     }
     else{
     
-    span.classList.add("check");
-    div.append(span);
-    label.innerText = input.value ;
+    /* span.classList.add("check");
+    div.append(span); */
+  /*   label.innerText = input.value ;
     label.id = "list-items" ;
     div.appendChild(label);
     div.classList.add("task");
@@ -79,7 +82,14 @@ function appendli() {
     li.appendChild(span2);
     li.classList.add("listItems");
     li.setAttribute("draggable",true);
-    liList.appendChild(li);
+    liList.appendChild(li); */
+    li.innerText = input.value;
+    li.classList.add("listItems");
+    li.setAttribute("draggable", true);
+    span.setAttribute("id","cross");
+    li.append(span);
+    liList.append(li);
+    savetask(liList);
     input.value="" ;
     document.getElementById('input-box').classList.remove("invalid");
     document.getElementById('input-box').placeholder = "Create Todo-task....."
@@ -142,23 +152,23 @@ document.getElementById("ul-container").addEventListener("click",function(e){
     let list = document.getElementsByClassName("listItems");
     console.log(list);
     console.log(list); */
-     if(e.target.tagName==='LABEL') {
+     if(e.target.tagName==='LI') {
         
         let lbl =  e.target ;
-        let span = lbl.previousSibling;
+        
         
         lbl.classList.toggle("checked-items");
-         if(lbl.classList.contains("checked-items")){
-                span.classList.toggle("checked");
-         }
-         else{
-           span.classList.remove("checked");
-         }
-        }   
+        
+}
 })
 
+function savetask(liList){
+    localStorage.setItem("data",liList);
+}
 
-
+function displaytask(){
+    container.innerHTML = localStorage.getItem("data");
+}
 
 
 

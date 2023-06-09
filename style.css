@@ -168,6 +168,28 @@ body {
 
 }
 
+.tasks ul li::before {
+    content:"";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    outline: 2px solid lightgray;
+    outline-offset: -2px;
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-left: 5px;
+    
+}
+
+ul li.checked-items::before {
+    background-image:url(images/icon-check.svg),
+    linear-gradient(hsl(192, 100%, 67%),hsl(280, 87%, 65%));
+    background-position: center;
+    background-repeat: no-repeat;
+   outline: none;
+    border: none;
+}
+
 #ul-container .task {
     display: flex;
     align-items: center;
@@ -180,7 +202,7 @@ body {
     text-decoration: line-through;
 }
 
-#ul-container .task .check {
+/* #ul-container .task .check {
     margin-left: 10px;
     display: inline-block;
     width: 20px;
@@ -188,20 +210,20 @@ body {
     border: 2px solid lightgray;
     border-radius: 50%;
     cursor: pointer;
-}
-#ul-container li .task .checked{
+} */
+/* #ul-container li .task .checked{
     background-image: url(images/icon-check.svg), 
     linear-gradient(hsl(192, 100%, 67%),hsl(280, 87%, 65%));
     background-position: center;
     background-repeat: no-repeat;
     border: none; 
 }
-
+ */
 #cross {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    margin-left: 10px;
+    margin-left: auto;
     margin-right: 5px;
     
     cursor: pointer;
@@ -209,7 +231,7 @@ body {
 
 .listItems{
     display: flex;
-    justify-content: space-between;
+   /*  justify-content: space-between; */
 }
 
 li:hover #cross {
@@ -228,7 +250,7 @@ li:hover #cross {
     
 }
 
-.listItems.dragging :where(.task, #cross) {
+.listItems.dragging ,#cross {
     opacity: 0;
 }
 
