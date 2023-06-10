@@ -225,7 +225,7 @@ ul li.checked-items::before {
     border-radius: 50%;
     margin-left: auto;
     margin-right: 5px;
-    
+    background-image:url(images/icon-cross.svg) ;
     cursor: pointer;
 }
 
@@ -250,8 +250,13 @@ li:hover #cross {
     
 }
 
-.listItems.dragging ,#cross {
+.listItems.dragging #cross {
     opacity: 0;
+}
+
+#items-count {
+    margin: 2px;
+    font-size: 1em;
 }
 
 
@@ -274,9 +279,7 @@ li:hover #cross {
     
 }
 
-.footer-dm {
-  
-}
+
 .center-footer {
     text-transform: capitalize;
     gap: 15px;

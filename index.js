@@ -1,6 +1,5 @@
 let container = document.getElementById("ul-container");
-
-
+let count = 0 ;
 document.getElementById("input-box").addEventListener("keydown" , 
 function(event){
     if(event.keyCode==13) {
@@ -89,10 +88,11 @@ function appendli() {
     span.setAttribute("id","cross");
     li.append(span);
     liList.append(li);
-    savetask(liList);
+    /* savetask(liList); */
     input.value="" ;
     document.getElementById('input-box').classList.remove("invalid");
     document.getElementById('input-box').placeholder = "Create Todo-task....."
+    count++;
     
     }
 
@@ -102,8 +102,9 @@ function appendli() {
     cross.forEach(item => {
             
     item.addEventListener('click',function(e){
-        e.target.parentNode.remove(); 
-    })
+        e.target.parentNode.remove();   
+    
+    });
     });
     
 
@@ -140,6 +141,11 @@ const siblings = [...container.querySelectorAll(".listItems:not(.dragging)")] ;
     container.addEventListener("dragover",sortlist);
     container.addEventListener("dragenter",(e)=>e.preventDefault());
     
+
+    /* item-counts */
+
+    let itemcount = document.getElementById("items-count");
+    itemcount.innerText = count ;
 }
 
 /* for addding checked items */
@@ -153,23 +159,25 @@ document.getElementById("ul-container").addEventListener("click",function(e){
     console.log(list);
     console.log(list); */
      if(e.target.tagName==='LI') {
-        
+       
         let lbl =  e.target ;
-        
-        
         lbl.classList.toggle("checked-items");
         
 }
 })
 
-function savetask(liList){
+
+
+
+
+/* function savetask(liList){
     localStorage.setItem("data",liList);
 }
 
 function displaytask(){
     container.innerHTML = localStorage.getItem("data");
 }
-
+ */
 
 
 
