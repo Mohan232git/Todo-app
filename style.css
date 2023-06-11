@@ -198,8 +198,9 @@ ul li.checked-items::before {
 }
 
 
-.checked-items {
+.checked-items:not(::before) {
     text-decoration: line-through;
+    font
 }
 
 /* #ul-container .task .check {
@@ -250,7 +251,7 @@ li:hover #cross {
     
 }
 
-.listItems.dragging #cross {
+.listItems.dragging {
     opacity: 0;
 }
 

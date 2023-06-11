@@ -1,11 +1,33 @@
 let container = document.getElementById("ul-container");
-let count = 0 ;
+
 document.getElementById("input-box").addEventListener("keydown" , 
 function(event){
     if(event.keyCode==13) {
         appendli();
      
     }
+})
+
+
+
+/* for addding checked items */
+
+document.getElementById("ul-container").addEventListener("click",function(e){
+
+    
+    let div  = document.getElementsByClassName("task");
+    /* let div  = document.getElementsByClassName("task");
+    let list = document.getElementsByClassName("listItems");
+    console.log(list);
+    console.log(list); */
+     if(e.target.tagName==='LI') {
+        
+        let lbl =  e.target ;
+        lbl.classList.toggle("checked-items");
+        itemsleft() ;
+    
+        
+}
 })
 
 
@@ -61,7 +83,7 @@ function appendli() {
     let li = document.createElement("li");
     let liList =document.getElementById("ul-container");
    /*  let span2 = document.createElement("span") ; */
-
+    let count = 0 ;
     if(input.value==""){
 
         document.getElementById('input-box').placeholder = "Enter the task!"
@@ -91,19 +113,17 @@ function appendli() {
     /* savetask(liList); */
     input.value="" ;
     document.getElementById('input-box').classList.remove("invalid");
-    document.getElementById('input-box').placeholder = "Create Todo-task....."
-    count++;
-    
+    document.getElementById('input-box').placeholder = "Create Todo-task.....";
+    itemsleft();
     }
 
     /* remove item */
 
         let cross = document.querySelectorAll("#cross");
-    cross.forEach(item => {
-            
+    cross.forEach(item => {   
     item.addEventListener('click',function(e){
         e.target.parentNode.remove();   
-    
+        itemsleft();
     });
     });
     
@@ -143,28 +163,18 @@ const siblings = [...container.querySelectorAll(".listItems:not(.dragging)")] ;
     
 
     /* item-counts */
-
-    let itemcount = document.getElementById("items-count");
-    itemcount.innerText = count ;
-}
-
-/* for addding checked items */
-
-document.getElementById("ul-container").addEventListener("click",function(e){
-
+   
     
-    let div  = document.getElementsByClassName("task");
-    /* let div  = document.getElementsByClassName("task");
-    let list = document.getElementsByClassName("listItems");
-    console.log(list);
-    console.log(list); */
-     if(e.target.tagName==='LI') {
-       
-        let lbl =  e.target ;
-        lbl.classList.toggle("checked-items");
-        
 }
-})
+
+function itemsleft() {
+    let itemscount = document.getElementById("items-count");
+    const totalunchecked =[...document.querySelectorAll('.listItems')] ;
+    const totalchecked = [...document.querySelectorAll(".checked-items")];
+    const unchecked = totalunchecked.length;
+    const checked = totalchecked.length;
+    itemscount.innerText = unchecked - checked ;
+}
 
 
 
