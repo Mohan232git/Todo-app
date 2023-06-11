@@ -25,9 +25,13 @@ document.getElementById("ul-container").addEventListener("click",function(e){
         let lbl =  e.target ;
         lbl.classList.toggle("checked-items");
         itemsleft() ;
-    
-        
-}
+        savetask();        
+    }
+    else if(e.target.tagName==="SPAN") {
+        e.target.parentNode.remove() ;
+        itemsleft();
+        savetask();
+    }
 })
 
 
@@ -51,6 +55,7 @@ img.addEventListener("click",function(e){
                 inputBox.classList.add("input-box-dm");
                 inputField.classList.add("input-dm");
                 tasksdiv.classList.add("dm-tasks");
+
                 
                 
             }
@@ -67,6 +72,7 @@ img.addEventListener("click",function(e){
                 inputBox.classList.remove("input-box-dm");
                 inputField.classList.remove("input-dm");
                 tasksdiv.classList.remove("dm-tasks");
+                
             
             }
         
@@ -115,18 +121,11 @@ function appendli() {
     document.getElementById('input-box').classList.remove("invalid");
     document.getElementById('input-box').placeholder = "Create Todo-task.....";
     itemsleft();
-    }
-
-    /* remove item */
-
-        let cross = document.querySelectorAll("#cross");
-    cross.forEach(item => {   
-    item.addEventListener('click',function(e){
-        e.target.parentNode.remove();   
-        itemsleft();
-    });
-    });
+    savetask();
     
+    }
+    
+   
 
 
 
@@ -140,6 +139,7 @@ function appendli() {
         });
         item.addEventListener("dragend",()=> {
             item.classList.remove("dragging");
+        
         });
     }) ;
 
@@ -156,16 +156,23 @@ const siblings = [...container.querySelectorAll(".listItems:not(.dragging)")] ;
 
 
         container.insertBefore(draggingItem ,nextsibling) ;
+            
     }
-
+    
     container.addEventListener("dragover",sortlist);
     container.addEventListener("dragenter",(e)=>e.preventDefault());
     
 
-    /* item-counts */
+  
    
-    
+   
 }
+
+
+
+          /* item-counts */
+
+
 
 function itemsleft() {
     let itemscount = document.getElementById("items-count");
@@ -177,17 +184,36 @@ function itemsleft() {
 }
 
 
-
-
-
-/* function savetask(liList){
-    localStorage.setItem("data",liList);
+ 
+        /* clear completed */
+function clearcomp(){
+    
+    let cleareditems = [...container.querySelectorAll(".checked-items")];
+    cleareditems.forEach(item =>{
+        container.removeChild(item) ;
+    });
+    savetask();
+    
 }
 
-function displaytask(){
-    container.innerHTML = localStorage.getItem("data");
+
+
+ 
+
+
+ function savetask(){
+    localStorage.setItem("data",container.innerHTML);
+    
+} 
+
+
+ function displaytask(){
+    container.innerHTML = localStorage.getItem("data") ;
 }
- */
+
+displaytask();
+
+
 
 
 

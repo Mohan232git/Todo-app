@@ -23,17 +23,21 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0 auto;
+   
 }
 
 
-@media(max-width:400px){
+ @media(max-width:400px){
     .image {
         background-position: center;
+        background-size: cover;
+        overflow: hidden;
     }
-}
 
+
+} 
 .container {
-    min-width:400px ;
+    min-width:300px ;
     max-width: 500px;
     margin: 0 auto;
     margin-top: -300px;   
@@ -198,9 +202,9 @@ ul li.checked-items::before {
 }
 
 
-.checked-items:not(::before) {
+.checked-items{
     text-decoration: line-through;
-    font
+    opacity: 0.5;
 }
 
 /* #ul-container .task .check {
@@ -285,14 +289,14 @@ li:hover #cross {
     text-transform: capitalize;
     gap: 15px;
 }
-.footer p a {
+.footer p  {
     text-decoration: none;
     color: gray;
 
 }
 
-.footer p a:hover {
-    color:hsl(235, 19%, 35%) ;
+.footer p:hover {
+    color:rgb(68, 68, 238);
     cursor: pointer;
     font-weight: 600;
 }
